@@ -9,6 +9,9 @@
         android:id="@+id/menu_setting"
         android:title="Settings" />
     <item
+        android:id="@+id/delete"
+        android:title="Delete User" />
+    <item
         android:id="@+id/menu_user"
         android:title="All Users" />
 

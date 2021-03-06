@@ -11,8 +11,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -68,6 +73,9 @@ public class  MainActivity extends AppCompatActivity {
 
             FirebaseAuth.getInstance().signOut();
             senttostart();
+        }
+        if(item.getItemId()==R.id.delete){
+            startActivity(new Intent(MainActivity.this,DeleteUser.class));
         }
         if(item.getItemId()==R.id.menu_setting){
             Intent settingIntent=new Intent(MainActivity.this,SettingActivity.class);
