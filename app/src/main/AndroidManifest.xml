@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeleteUser"></activity>
+        <activity android:name=".ChangeEmail"></activity>
+        <activity android:name=".DeleteUser" />
         <activity
             android:name=".MessageActivity"
             android:parentActivityName=".UserActivity" />

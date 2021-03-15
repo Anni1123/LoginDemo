@@ -18,24 +18,16 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class DeleteUser extends AppCompatActivity {
+public class ChangeEmail extends AppCompatActivity {
 
     FirebaseAuth auth;
     Button chanegemail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete_user);
+        setContentView(R.layout.activity_change_email);
         final EditText email=findViewById(R.id.email);
         final EditText password=findViewById(R.id.logpass);
-        Button submit=findViewById(R.id.submit);
-        auth=FirebaseAuth.getInstance();
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteuser(email.getText().toString(),password.getText().toString());
-            }
-        });
         chanegemail=findViewById(R.id.changeemail);
         chanegemail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +40,7 @@ public class DeleteUser extends AppCompatActivity {
     EditText change;
 
 
-    private void changeemail(String email,String password) {
+    private void changeemail(String email, final String password) {
         change=findViewById(R.id.chaneg);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -69,6 +61,8 @@ public class DeleteUser extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
+                                            Toast.makeText(ChangeEmail.this,"Email Changed" + " Current Email is " + change.getText().toString(),Toast.LENGTH_LONG).show();
+
                                             Log.d("value", "User email address updated.");
                                         }
                                     }
@@ -80,35 +74,5 @@ public class DeleteUser extends AppCompatActivity {
     }
 
 
-    private void deleteuser(String email, String password) {
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        // Get auth credentials from the user for re-authentication. The example below shows
-        // email and password credentials but there are multiple possible providers,
-        // such as GoogleAuthProvider or FacebookAuthProvider.
-        AuthCredential credential = EmailAuthProvider
-                .getCredential(email, password);
-
-        // Prompt the user to re-provide their sign-in credentials
-        if(user!=null) {
-            user.reauthenticate(credential)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            user.delete()
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Log.d("TAG", "User account deleted.");
-                                                startActivity(new Intent(DeleteUser.this,StartActivity.class));
-                                                Toast.makeText(DeleteUser.this, "Deleted User Successfully,", Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-                                    });
-                        }
-                    });
-           }
-     }
 
 }

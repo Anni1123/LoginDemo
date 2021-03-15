@@ -77,6 +77,9 @@ public class  MainActivity extends AppCompatActivity {
         if(item.getItemId()==R.id.delete){
             startActivity(new Intent(MainActivity.this,DeleteUser.class));
         }
+        if(item.getItemId()==R.id.change){
+            startActivity(new Intent(MainActivity.this,ChangeEmail.class));
+        }
         if(item.getItemId()==R.id.menu_setting){
             Intent settingIntent=new Intent(MainActivity.this,SettingActivity.class);
             startActivity(settingIntent);

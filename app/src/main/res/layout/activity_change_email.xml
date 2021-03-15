@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".DeleteUser">
+    tools:context=".ChangeEmail">
     <EditText
         android:id="@+id/email"
         android:layout_width="267dp"
@@ -31,17 +31,17 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="192dp"
-        android:layout_marginTop="227dp"
-        android:background="@color/colorPrimary"
-        android:text="Submit Here"
-        android:textSize="15dp" />
+<!--    <Button-->
+<!--        android:id="@+id/submit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="192dp"-->
+<!--        android:layout_marginTop="227dp"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:text="Submit Here"-->
+<!--        android:textSize="15dp" />-->
 
 
 
@@ -52,10 +52,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="161dp"
+        android:layout_marginTop="211dp"
         android:ems="10"
         android:hint="Change Email"
-        android:inputType="textPassword" />
+        android:inputType="textEmailAddress" />
 
     <Button
         android:id="@+id/changeemail"
@@ -64,7 +64,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="192dp"
-        android:layout_marginTop="227dp"
+        android:layout_marginTop="277dp"
         android:background="@color/colorPrimary"
         android:text="Change Email Here"
         android:textSize="15dp" />

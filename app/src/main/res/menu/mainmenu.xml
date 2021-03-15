@@ -12,6 +12,9 @@
         android:id="@+id/delete"
         android:title="Delete User" />
     <item
+        android:id="@+id/change"
+        android:title="Change email" />
+    <item
         android:id="@+id/menu_user"
         android:title="All Users" />
 
